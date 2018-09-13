@@ -15,23 +15,27 @@ public class POSTActivity extends AppCompatActivity {
         setContentView(R.layout.activity_post);
     }
 
+    String txtuserID, txtTitle, txtBody;
     public void executaConsultaPost(View view){
 
-        String url = "https://jsonplaceholder.typicode.com/posts";
-        EditText txtConsulta = findViewById(R.id.edt_pesquisa);
-        url += txtConsulta.getText().toString();
-        Toast.makeText(this, url, Toast.LENGTH_SHORT).show();
+        String url = "https://jsonplaceholder.typicode.com/posts/";
 
-//        String parameter =  "{\n" +
-//                "    \"name\": \"testando\",\n" +
-//                "    \"job\": \"1234\"\n" +
-//                "}";
+        EditText edtUserId = findViewById(R.id.editText);
+        txtuserID = edtUserId.getText().toString();
+        EditText edtTitle = findViewById(R.id.editText2);
+        txtTitle = edtTitle.getText().toString();
+        EditText edtBody = findViewById(R.id.editText3);
+        txtBody = edtBody.getText().toString();
 
-        TextView txttitulo = findViewById(R.id.txt_titulo);
-        TextView txtbody = findViewById(R.id.txt_completed);
+        String parametro =  "{\n" +
+                            "\"userId\": \""+txtuserID+"\",\n" +
+                            "\"title\" : \""+txtTitle+"\" ,\n" +
+                            "\"body\"  : \""+txtBody+"\"   \n" +
+                            "}";
+
         TextView txtstatus = findViewById(R.id.txt_statuspost);
 
-        new DataGetterPost(txttitulo, txtbody, txtstatus).execute(url);
+        new DataGetterPost(txtstatus).execute(url, parametro);
 
     }
 }

@@ -1,9 +1,7 @@
 package com.app.thidu.nacapirestedados;
 
 import android.os.AsyncTask;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -48,12 +46,13 @@ public class DataGetter extends AsyncTask<String,Void,String> {
             String completed = jsonResponse.getString("completed");
 
             txt_titulo.setText(titulo);
-
             txt_completed.setText("Completed:" + completed);
 
         }
         catch(JSONException e){
-            this.txt_status.setText("erroJSON");
+            txt_titulo.setText("Título");
+            txt_completed.setText("Completed:");
+            this.txt_status.setText("Status: erroJSON");
         }
     }
 }

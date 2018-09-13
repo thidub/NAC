@@ -57,9 +57,10 @@
         android:id="@+id/txt_statusget"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/txt_completed"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="145dp"
         android:text="Status:"
-        android:textSize="24sp" />
+        android:textSize="30sp" />
 
 </RelativeLayout>

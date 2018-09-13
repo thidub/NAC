@@ -9,11 +9,9 @@ import org.json.JSONObject;
 public class DataGetterPost extends AsyncTask<String,Void,String> {
 
 
-    private TextView txttitulo, txtbody, txtStatus;
+    private TextView txtStatus;
 
-    public DataGetterPost(TextView titulo, TextView body, TextView status) {
-        this.txttitulo = titulo;
-        this.txtbody = body;
+    public DataGetterPost(TextView status) {
         this.txtStatus = status;
     }
 
@@ -28,13 +26,10 @@ public class DataGetterPost extends AsyncTask<String,Void,String> {
         try{
             JSONObject jsonResponse = new JSONObject(s);
 
-            String titulo = jsonResponse.getString("title");
-            String body = jsonResponse.getString("body");
+            String id = jsonResponse.getString("id");
 
+            txtStatus.setText("Sucesso! ID:" + id);
 
-            txttitulo.setText(titulo);
-            txtbody.setText(body);
-            txtStatus.setText("Status: Encontrado!");
         }
         catch(JSONException e){
             this.txtStatus.setText("erroJSON");
